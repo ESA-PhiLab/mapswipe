@@ -7,11 +7,13 @@ We welcome any contributions that help improve the application. Before you start
 
 ## Building the Application locally
 
-To build the application locally, you'll need to install Android Studio or XCode in order to build the app in Android or iOS respectively. The React Native docs have [instructions](https://facebook.github.io/react-native/docs/getting-started.html) for both of those setups under the section "Building Projects with Native Code" that you can follow. Do that first. 
+To build the application locally, you'll need to install Android Studio or XCode in order to build the app in Android or iOS respectively. The React Native docs have [instructions](https://facebook.github.io/react-native/docs/getting-started.html) for both of those setups under the section "Building Projects with Native Code" that you can follow. Do that first.
 
 To run the application, you need to have NodeJS installed (version 6.3 or higher) as well as React Native. You can install React Native globally with `npm install -g react-native-cli`.
 
 For Android, you'll have to set up some Gradle variables to prepare a release. The React Native docs have a [good explanation and instructions](https://facebook.github.io/react-native/docs/signed-apk-android.html) for doing that.
+
+Define location with `sdk.dir` in the `local.properties` file or with an `ANDROID_HOME` environment variable.
 
 To run the application, run either `react-native run-android` or `react-native run-ios` from the root of the project to build it. (If you have trouble running `react-native run-ios`, open the file `./ios/Mapswipe.xcworkspace` in Xcode.)
 
@@ -29,7 +31,7 @@ Copy the Android file to `android/app/google-services.json` and the iOS file to 
 Within the root of the project, run the command
 
     node setup-config.js
-    
+
 and it will prompt you for what you need to fill in the configuration.
 
 ### Manually create `config.json`
