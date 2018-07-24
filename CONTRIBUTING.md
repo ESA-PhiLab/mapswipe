@@ -15,6 +15,8 @@ For Android, you'll have to set up some Gradle variables to prepare a release. T
 
 Define location with `sdk.dir` in the `local.properties` file or with an `ANDROID_HOME` environment variable.
 
+The build tools version for Android SDK is set to 23.0.1 thus make sure that Android SDK Build-tools 23.0.1 is installed or update the Build-tools version in `android/app/build.gradle`. You might have to also update the references to `com.android.support:appcompat-v7` in the same file. Android SDK Build-tools 23.0.1 can be installed via the Android SDK Manager.
+
 To run the application, run either `react-native run-android` or `react-native run-ios` from the root of the project to build it. (If you have trouble running `react-native run-ios`, open the file `./ios/Mapswipe.xcworkspace` in Xcode.)
 
 ### Setting up Firebase
