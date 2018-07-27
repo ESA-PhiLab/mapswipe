@@ -1,4 +1,4 @@
-package org.missingmaps.mapswipe;
+package app.esa.sentinelswipe;
 
 import com.facebook.react.ReactActivity;
 import cl.json.RNSharePackage;
