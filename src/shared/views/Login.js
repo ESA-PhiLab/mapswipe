@@ -266,7 +266,7 @@ var Login = React.createClass({
         var rows = [];
 
         if (this.state.screen === 0) {
-            rows.push(<ScrollView style={styles.container} contentContainerStyle={{
+            rows.push(<ScrollView key={rows.length} style={styles.container} contentContainerStyle={{
                 alignItems: 'center',
                 width: GLOBAL.SCREEN_WIDTH,
                 backgroundColor: '#0d1949',
@@ -314,7 +314,7 @@ var Login = React.createClass({
 
             </ScrollView>)
         } else if (this.state.screen === 1) {
-            rows.push(<ScrollView style={styles.container} contentContainerStyle={{
+            rows.push(<ScrollView key={rows.length} style={styles.container} contentContainerStyle={{
                 alignItems: 'center',
                 width: GLOBAL.SCREEN_WIDTH,
                 backgroundColor: '#0d1949',
@@ -361,7 +361,7 @@ var Login = React.createClass({
             </ScrollView>)
         } else if (this.state.screen === 2) {
             rows.push(
-                <ScrollView style={styles.container} contentContainerStyle={{
+                <ScrollView key={rows.length} style={styles.container} contentContainerStyle={{
                     alignItems: 'center',
                     width: GLOBAL.SCREEN_WIDTH,
                     backgroundColor: '#0d1949',

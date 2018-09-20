@@ -258,7 +258,7 @@ var RecommendedCards = React.createClass({
             rows.push(<FeaturedCard key={rows.length} navigator={this.props.navigator}
                                     card={this.state.projects.featuredCard}/>);
         } else {
-            rows.push(<LoadingIcon/>);
+            rows.push(<LoadingIcon key={rows.length}/>);
         }
 
         var parent = this;
@@ -266,7 +266,7 @@ var RecommendedCards = React.createClass({
             rows.push(<CardRow key={rows.length} navigator={parent.props.navigator} cardRow={cardRow}/>)
         });
 
-        rows.push(<Modal style={[style.modal, style.modal3]} backdropType="blur" position={"top"} ref={"modal3"}
+        rows.push(<Modal key={rows.length} style={[style.modal, style.modal3]} backdropType="blur" position={"top"} ref={"modal3"}
                          isDisabled={this.state.isDisabled}>
             <Text style={style.header}>Tutorial</Text>
             <Text style={style.tutPar}>Learn more about how to use Mapswipe!</Text>
@@ -321,4 +321,3 @@ var CardRow = React.createClass({
 
 
 module.exports = ProjectNav;
-
