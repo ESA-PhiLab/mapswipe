@@ -1269,9 +1269,10 @@ module.exports = {
                          });*/
 
                         var projects = snapshot.val();
+
                         var projects = _.sortBy(projects, "isFeatured").reverse();
 
-
+                        console.log(projects);
                         var newCards = {
                             featuredCard: null,
                             otherCards: []

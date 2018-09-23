@@ -10,6 +10,8 @@ import {Navigator, Text, View, StyleSheet, Platform, Image, BackAndroid} from "r
 import {DefaultTabBar} from "react-native-scrollable-tab-view";
 import Button from "apsl-react-native-button";
 
+console.disableYellowBox = true;
+
 var Tutorial = require('./views/Tutorial');
 var ProjectNav = require('./views/ProjectNav');
 var ProjectView = require('./views/ProjectView');
@@ -270,4 +272,3 @@ var Main = React.createClass({
 });
 
 module.exports = Main;
-

@@ -365,15 +365,15 @@ var Mapper = React.createClass({
     },
 
     onClose: function () {
-        console.log('Modal just closed');
+        //console.log('Modal just closed');
     },
 
     onOpen: function () {
-        console.log('Modal just openned');
+        //console.log('Modal just openned');
     },
 
     onClosingState: function (state) {
-        console.log('the open/close of the swipeToClose just changed');
+        //console.log('the open/close of the swipeToClose just changed');
     },
     openModal3: function (id) {
         this.refs.modal3.open();
@@ -567,7 +567,7 @@ var LoadMoreCard = React.createClass({
     _onMore() {
         GLOBAL.ANALYTICS.logEvent('complete_group');
         var parent = this;
-        console.log("made it to more");
+        //console.log("made it to more");
         _mapper.props.messageBar.showAlert({
             title: 'Sync Alert',
             message: 'Syncing your tasks.. do not close',
@@ -576,18 +576,18 @@ var LoadMoreCard = React.createClass({
             // Or check `index.ios.js` or `index.android.js` for a complete example
         });
         GLOBAL.DB.addGroupComplete(this.props.groupInfo.project, this.props.groupInfo.group).then(data => {
-            console.log("did group complete");
+            //console.log("did group complete");
             _mapper.refs.cardbody.resetState();
-            console.log("hello2");
+            //console.log("hello2");
 
             GLOBAL.DB.getSingleGroup(this.props.groupInfo.project).then((data) => {
-                console.log("got new one")
-                console.log("hello2");
+                //console.log("got new one")
+                //console.log("hello2");
                 _mapper.refs.cardbody.generateCards(data.group);
 
             }).catch(function (error) {
-                console.log("Show error here");
-                console.log(error);
+                //console.log("Show error here");
+                //console.log(error);
             });
 
             console.log("Completed group report");
@@ -617,7 +617,7 @@ var LoadMoreCard = React.createClass({
         GLOBAL.DB.addGroupComplete(this.props.groupInfo.project, this.props.groupInfo.group).then(data => {
             _mapper.refs.cardbody.resetState();
 
-            console.log("Completed group report");
+            //console.log("Completed group report");
             _mapper.props.messageBar.showAlert({
                 title: 'Sync Alert',
                 message: 'Syncing your tasks.. do not close',
@@ -906,7 +906,7 @@ var CardBody = React.createClass({
     currentGroup: null,
     isOfflineGroup: false,
     resetState() {
-        console.log("RESETTING STATE!");
+        //console.log("RESETTING STATE!");
         this.allCards = {};
         this.totalRenderedCount = -1;
         this.isOfflineGroup = false;
@@ -934,9 +934,9 @@ var CardBody = React.createClass({
         this.groupXStart = data.xMin;
         this.groupXEnd = data.xMax;
 
-        console.log("arrrrrrrrrrr");
+        //console.log("arrrrrrrrrrr");
         var key = 'project-' + data.projectId + '-group-' + data.id;
-        console.log(data.projectId);
+        //console.log(data.projectId);
         this.isOfflineGroup = GLOBAL.DB.isOfflineGroup(key);
         if (this.isOfflineGroup === true) {
             if (this.lastMode !== 'offline') {
@@ -1013,12 +1013,12 @@ var CardBody = React.createClass({
 
     getTasks() {
         GLOBAL.DB.getSingleGroup(this.props.data.id).then((data) => {
-            console.log("waaaaaa");
+            //console.log("waaaaaa");
             this.generateCards(data.group);
 
         }).catch(function (error) {
-            console.log("Show error here");
-            console.log(error);
+            //console.log("Show error here");
+            //console.log(error);
         });
 
 
@@ -1096,4 +1096,3 @@ var CardBody = React.createClass({
 
 
 module.exports = Mapper;
-

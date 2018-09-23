@@ -136,11 +136,11 @@ var ProjectNav = React.createClass({
     componentDidMount() {
 
         GLOBAL.ANALYTICS.logEvent('app_home_seen');
-        console.log("Firing sync");
+        //console.log("Firing sync");
         // attempt to sync any unsynced data from last time.
         GLOBAL.DB.syncAndDeIndex().then(data => {
-            console.log("SyncAndDeIndex complete:");
-            console.log(data);
+            //console.log("SyncAndDeIndex complete:");
+            //console.log(data);
             // if(data.successCount === 0 || data.errorCount > 0) {
             this.props.messageBar.showAlert({
                 title: data.successCount + " tasks synced",
@@ -178,7 +178,7 @@ var RecommendedCards = React.createClass({
         var parent = this;
 
         GLOBAL.DB.openPopup().then(data => {
-            console.log("No need to open new tut window")
+            //console.log("No need to open new tut window")
         }).catch(err => {
             parent.refs.modal3.open();
         })
@@ -223,12 +223,12 @@ var RecommendedCards = React.createClass({
 
         // get the projects
         GLOBAL.DB.getProjects().then((data) => {
-            console.log("koolio");
-            console.log(data);
+            //console.log("koolio");
+            //console.log(data);
             this.updateProjects(data);
         }).catch(function (error) {
-            console.log("Show error here");
-            console.log(error);
+            //console.log("Show error here");
+            //console.log(error);
         });
 
         return {
@@ -244,7 +244,7 @@ var RecommendedCards = React.createClass({
 
 
         if (this.state.announcement !== null) {
-            rows.push(<Button onPress={() => {
+            rows.push(<Button key={rows.length} onPress={() => {
                 this.props.navigator.push({id: 5, data: this.state.announcement.url, paging: true})
             }} style={style.otherButton}
                               textStyle={{
@@ -309,8 +309,8 @@ var CardRow = React.createClass({
 
         var rows = [];
         for (var i = 0; i < this.props.cardRow.cards.length; i++) {
-            console.log(i);
-            rows.push(<ProjectCard navigator={this.props.navigator} card={this.props.cardRow.cards[i]} cardIndex={i}
+            //console.log(i);
+            rows.push(<ProjectCard key={rows.length} navigator={this.props.navigator} card={this.props.cardRow.cards[i]} cardIndex={i}
                                    featured={false}/>);
         }
         return <View navigator={this.props.navigator} style={style.cardRow}>

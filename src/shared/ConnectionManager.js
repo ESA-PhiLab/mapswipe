@@ -24,7 +24,7 @@ class ConnectionManager {
      * Constructor is called when the class is initialized
      */
     constructor() {
-        console.log("Initialized connection manager");
+        //console.log("Initialized connection manager");
     }
 
     initializeWithState(networkState) {
@@ -32,7 +32,7 @@ class ConnectionManager {
         this.networkState = networkState;
         var parent = this;
 
-        console.log("Connection manager initialized");
+        //console.log("Connection manager initialized");
 
         var handler = function (reach) {
             parent.networkState = reach;

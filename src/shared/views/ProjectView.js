@@ -340,7 +340,7 @@ var ProjectHeader = React.createClass({
                         text: 'Okay',
                         onPress: () => this.props.navigator.push({ id: 1, data: this.props.data, paging: true })
                     },
-                    { text: 'Close', onPress: () => console.log("closed") },
+                    { text: 'Close', onPress: () => {}/*console.log("closed")*/ },
                 ]
             )
         }
@@ -373,7 +373,7 @@ var ProjectHeader = React.createClass({
                 'Warning: You are not on wifi',
                 'You can map about 8 hours per 1GB of data',
                 [
-                    { text: 'Cancel', onPress: () => console.log("canceled wifi mapping") },
+                    { text: 'Cancel', onPress: () => {} /*console.log("canceled wifi mapping")*/ },
                     {
                         text: 'Continue',
                         onPress: () => parent.props.navigator.push({ id: 3, data: this.props.data, paging: true })
@@ -395,7 +395,7 @@ var ProjectHeader = React.createClass({
                     [
                         {
                             text: 'Got it', onPress: () => {
-                                console.log("canceled wifi");
+                                //console.log("canceled wifi");
                                 parent.closeModal3();
                             }
                         }
@@ -403,7 +403,7 @@ var ProjectHeader = React.createClass({
                     ]
                 )
             } else if (GLOBAL.DB.getConnectionManager().isOnWifi()) {
-                console.log("We're headed to download" + originalTaskAmount + " tasks!");
+                //console.log("We're headed to download" + originalTaskAmount + " tasks!");
                 Alert.alert(
                     'Be patient!',
                     'It might take a while for your download to start. ',
@@ -424,13 +424,13 @@ var ProjectHeader = React.createClass({
                     [
                         {
                             text: 'Cancel', onPress: () => {
-                                console.log("canceled wifi");
+                                //console.log("canceled wifi");
                                 parent.closeModal3();
                             }
                         },
                         {
                             text: 'Continue', onPress: () => {
-                                console.log("We're headed to download" + originalTaskAmount + " tasks!");
+                                //console.log("We're headed to download" + originalTaskAmount + " tasks!");
                                 GLOBAL.DB.getTaskGroupsForProject(parent.props.data.id, -1, originalTaskAmount, parent.props.data.groupAverage, true);
                                 parent.closeModal3();
                             }
@@ -452,8 +452,8 @@ var ProjectHeader = React.createClass({
                 'Deletion Complete',
                 'We found ' + found + ' groups in this project and deleted them.',
                 [
-                    { text: 'Okay', onPress: () => console.log("closed") },
-                    { text: 'Close', onPress: () => console.log("closed") },
+                    { text: 'Okay', onPress: () => {}/*console.log("closed")*/ },
+                    { text: 'Close', onPress: () => {}/*console.log("closed")*/ },
                 ]
             )
         }
@@ -466,7 +466,7 @@ var ProjectHeader = React.createClass({
                 'Project Reset Complete',
                 'Your progress will still be synced! Try Now!',
                 [
-                    { text: 'Okay', onPress: () => console.log("closed") },
+                    { text: 'Okay', onPress: () => {} /*console.log("closed")*/ },
                 ]
             )
         }
@@ -574,4 +574,3 @@ var ProjectHeader = React.createClass({
 
 
 module.exports = ProjectView;
-

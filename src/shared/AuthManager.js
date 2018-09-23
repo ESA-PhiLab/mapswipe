@@ -11,7 +11,7 @@ class AuthManager {
     constructor(firebase) {
         this.firebase = firebase;
         this.hasReceivedLoginStatus = false;
-        console.log("Auth manager initialized");
+        //console.log("Auth manager initialized");
 
         // get current auth object from the store
         // if no auth object found, or the current auth object is invalid, we will request a new one
@@ -35,11 +35,11 @@ class AuthManager {
                         parent.setUsername(username);
                         resolve();
                     } else {
-                        console.log("not signed in..");
+                        //console.log("not signed in..");
                     }
                 });
 
-                console.log("authing with:" + email + " - " + " - " + username + " - " + " " + password);
+                //console.log("authing with:" + email + " - " + " - " + username + " - " + " " + password);
                 this.firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
                     // Handle Errors here.
                     var errorCode = error.code;
@@ -66,7 +66,7 @@ class AuthManager {
                     if (user) {
                         resolve();
                     } else {
-                        console.log("not signed in..");
+                        //console.log("not signed in..");
                     }
                 });
 
@@ -91,11 +91,11 @@ class AuthManager {
             {
 
                 this.firebase.auth().sendPasswordResetEmail(email).then(function () {
-                    console.log("reset pass resolving");
+                    //console.log("reset pass resolving");
                     resolve();
                 }, function (error) {
-                    console.log("reset pass threw error");
-                    console.log(error);
+                    //console.log("reset pass threw error");
+                    //console.log(error);
                     reject(error.message)
                 });
             }
@@ -117,7 +117,7 @@ class AuthManager {
      */
     isLoggedIn() {
         var user = this.firebase.auth().currentUser;
-        console.log("user logged in said: " + (user != null));
+        //console.log("user logged in said: " + (user != null));
         return user != null;
     }
 
@@ -126,10 +126,10 @@ class AuthManager {
      */
 
     logOut() {
-        console.log("logging out");
+        //console.log("logging out");
 
         this.firebase.auth().signOut().then(function () {
-            console.log("Logged out");
+            //console.log("Logged out");
         }, function (error) {
             // An error happened.
         });
@@ -144,7 +144,7 @@ class AuthManager {
         user.updateProfile({
             displayName: username
         }).then(function () {
-            console.log(user.displayName);
+            //console.log(user.displayName);
         }, function (error) {
             // An error happened.
         });
@@ -164,15 +164,15 @@ class AuthManager {
      */
 
     addListeners() {
-        console.log("adde listeners");
+        //console.log("adde listeners");
         var parent = this;
         this.firebase.auth().onAuthStateChanged(function (user) {
             parent.hasReceivedLoginStatus = true;
             if (user) {
-                console.log("we're signed in");
-                console.log((parent.isLoggedIn()) + " login status");
+                //console.log("we're signed in");
+                //console.log((parent.isLoggedIn()) + " login status");
             } else {
-                console.log("not signed in..");
+                //console.log("not signed in..");
             }
         });
     }
